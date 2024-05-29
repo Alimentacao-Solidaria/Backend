@@ -10,6 +10,8 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
+import jakarta.validation.constraints.PositiveOrZero;
 import jakarta.validation.constraints.Size;
 
 @Entity
@@ -29,10 +31,16 @@ public class Produto {
 	private String descricaoProduto;
 	
 	@NotNull
+	@Positive
 	private float preco;
 	
 	@NotNull
+	@PositiveOrZero
 	private int quantidade;
+	
+	@NotBlank(message = "O atributo foto é obrigatório")
+	@Size(max = 5000)
+	private String foto;
 	
 	@ManyToOne
 	@JsonIgnoreProperties("produto")
@@ -77,4 +85,21 @@ public class Produto {
 	public void setQuantidade(int quantidade) {
 		this.quantidade = quantidade;
 	}
+
+	public Categoria getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
+	}
+
+	public String getFoto() {
+		return foto;
+	}
+
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
+	
 }

@@ -20,7 +20,6 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.generation.alimentacaosolidaria.model.Categoria;
 import com.generation.alimentacaosolidaria.repository.CategoriaRepository;
-
 import jakarta.validation.Valid;
 
 @RestController
@@ -30,6 +29,7 @@ public class CategoriaController {
 
 	@Autowired
 	private CategoriaRepository categoriaRepository;
+	
 
 	@GetMapping
 	public ResponseEntity<List<Categoria>> getAll() {

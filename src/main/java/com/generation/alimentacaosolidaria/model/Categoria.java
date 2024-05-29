@@ -59,4 +59,13 @@ public class Categoria {
 	public void setDescricaoCategoria(String descricaoCategoria) {
 		this.descricaoCategoria = descricaoCategoria;
 	}
+
+	public List<Produto> getProduto() {
+		return produto;
+	}
+
+	public void setProduto(List<Produto> produto) {
+		this.produto = produto;
+	}
+	
 }

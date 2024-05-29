@@ -25,11 +25,10 @@ public class Usuario {
 		private String usuario;
 
 		@NotBlank(message = "O atributo senha é obrigatório")
-		@Size(min = 4, max = 20, message = "O campo senha precisa ter entre 4 e 20 caracteres.")
+		@Size(min = 4, max = 500, message = "O campo senha precisa ter entre 4 e 500 caracteres.")
 		private String senha;
 
-		@NotBlank(message = "O atributo senha é obrigatório")
-		@Size(min = 4, max = 1000, message = "O campo senha precisa ter entre 4 e 1000 caracteres.")
+		@Size(max = 5000)
 		private String foto;
 
 		public Long getId() {
