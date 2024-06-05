@@ -66,10 +66,5 @@ public static final long serialVersionUID = 1L;
 		this.password = user.getSenha();
 		
 	}
-
-	public UserDetails loadUserByUsername(String username2) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 	
 }
