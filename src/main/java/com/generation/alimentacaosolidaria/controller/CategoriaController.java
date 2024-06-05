@@ -14,12 +14,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.generation.alimentacaosolidaria.model.Categoria;
 import com.generation.alimentacaosolidaria.repository.CategoriaRepository;
-
 import jakarta.validation.Valid;
 
 @RestController
@@ -29,6 +29,7 @@ public class CategoriaController {
 
 	@Autowired
 	private CategoriaRepository categoriaRepository;
+	
 
 	@GetMapping
 	public ResponseEntity<List<Categoria>> getAll() {
@@ -68,6 +69,7 @@ public class CategoriaController {
 	}
 	
 	@DeleteMapping("/{id}")
+	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void delete(@PathVariable Long id){
 		Optional<Categoria> categoria = categoriaRepository.findById(id);
 		if (categoria.isEmpty())
