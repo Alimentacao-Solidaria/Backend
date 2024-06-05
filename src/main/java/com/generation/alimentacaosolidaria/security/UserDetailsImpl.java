@@ -66,5 +66,5 @@ public static final long serialVersionUID = 1L;
 		this.password = user.getSenha();
 		
 	}
-	
+
 }
