@@ -1,10 +1,12 @@
 package com.generation.alimentacaosolidaria.model;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
@@ -16,18 +18,21 @@ public class Usuario {
 		@GeneratedValue(strategy = GenerationType.IDENTITY)
 		private Long id;
 
+		
 		@NotBlank(message = "O atributo nome é obrigatório")
 		@Size(min = 4, max = 100, message = "O campo nome precisa ter entre 4 e 100 caracteres.")
 		private String nome;
 
+		@Schema(example = "email@email.com.br")
 		@NotBlank(message = "O atributo usuário é obrigatório")
-		@Size(min = 4, max = 50, message = "O campo usuário precisa ter entre 4 e 50 caracteres.")
+		@Email(message = "O Atributo Usuário deve ser um email válido!")
 		private String usuario;
 
 		@NotBlank(message = "O atributo senha é obrigatório")
 		@Size(min = 4, max = 500, message = "O campo senha precisa ter entre 4 e 500 caracteres.")
 		private String senha;
 
+		
 		@Size(max = 5000)
 		private String foto;
 
